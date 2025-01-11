@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: empprojectallocation-service
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: empprojectallocation-service
+  template:
+    metadata:
+      labels:
+        app: empprojectallocation-service
+    spec:
+      containers:
+        - name: empprojectallocation-service
+          image: dockerimage/empprojectallocation-service:latest
+          ports:
+            - containerPort: 8080
